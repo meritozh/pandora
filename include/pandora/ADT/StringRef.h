@@ -34,11 +34,11 @@ private:
     }
     return std::memcmp(Lhs, Rhs, Length);
   }
-  
+
 public:
   /// @name Constructors
   /// @{
-  
+
   /// Construct an empty string ref.
   StringRef() = default;
 
@@ -68,7 +68,7 @@ public:
   /// @}
   /// @name Iterators
   /// @{
-  
+
   iterator begin() const noexcept {
     return Data;
   }
