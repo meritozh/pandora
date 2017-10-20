@@ -34,11 +34,11 @@ private:
     }
     return std::memcmp(Lhs, Rhs, Length);
   }
-  
+
 public:
   /// @name Constructors
   /// @{
-  
+
   /// Construct an empty string ref.
   StringRef() = default;
 
@@ -61,14 +61,10 @@ public:
   StringRef(const std::string &Str)
     : Data(Str.data()), Length(Str.length()) {}
 
-  static StringRef willNullAsEmpty(const char *data) {
-    return StringRef(data ? data : "");
-  }
-
   /// @}
   /// @name Iterators
   /// @{
-  
+
   iterator begin() const noexcept {
     return Data;
   }
@@ -84,6 +80,14 @@ public:
   const unsigned char *byte_end() const noexcept {
     return reinterpret_cast<const unsigned char *>(end());
   }
+
+  /// @}
+  /// @name Helper
+  /// @{
+  static StringRef willNullAsEmpty(const char *data) {
+    return StringRef(data ? data : "");
+  }
+
 };
 
 } // namespace end pandora
