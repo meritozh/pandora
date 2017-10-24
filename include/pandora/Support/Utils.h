@@ -193,6 +193,10 @@ void PartialSort(std::vector<Element> &elements,
                      elements.end());
     std::sort(elements.begin(), elements.begin() + max_elements);
   }
+
+  // Remove the unsorted elements. Use erase instead of resize as it doesn't
+  // require a default constructor on Element.
+  elements.erase(elements.begin() + max_elements, elements.end());
 }
 /// @}
 
